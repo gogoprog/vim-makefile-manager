@@ -17,6 +17,8 @@ Add the following line to ```.vimrc```
 
 ## Commands
 
- | MakefileManagerSelect | Select the Makefile using `fzf` |
- | MakefileManagerMake | Execute :Make for the selected Makefile |
+| Name                  | Description                             |
+|-----------------------|-----------------------------------------|
+| MakefileManagerSelect | Select the Makefile using `fzf`         |
+| MakefileManagerMake   | Execute :Make for the selected Makefile |
 
