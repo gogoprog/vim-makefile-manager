@@ -1,6 +1,6 @@
 # vim-makefile-manager
 
-Vim plugin provides commands to switch between different Makefiles.
+Vim plugin that provides commands to switch between different Makefiles.
 
 ## Requirements
 
