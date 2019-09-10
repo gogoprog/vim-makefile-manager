@@ -26,6 +26,7 @@ end
 EOF
 
 function MM_make()
+  set makeprg=make
   if empty(g:MakefileManager_path)
     execute ':Make'
   else
