@@ -23,8 +23,8 @@ Add the following line to ```.vimrc```
 
 | Name                  | Description                             |
 |-----------------------|-----------------------------------------|
-| MakefileManagerSelect | Select the Makefile using `fzf`         |
-| MakefileManagerMake   | Execute :Make for the selected Makefile |
+| `:MakefileManagerSelect` | Select the Makefile using `fzf`         |
+| `:MakefileManagerMake`   | Execute `:Make` for the selected Makefile |
 
 
 ## License
