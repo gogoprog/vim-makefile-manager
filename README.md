@@ -6,6 +6,17 @@ Vim plugin that provides commands to switch between different Makefiles.
 
 ![Image](https://github.com/gogoprog/vim-makefile-manager/raw/master/demo.gif)
 
+## Introduction
+
+I made this plugin because of the following reasons:
+- I work with projects containing several Makefiles
+- I do no want to configure Vim for each project
+- I want the quickfix list to be functional after a build has been
+
+vim-makefile-manager offers an efficient way to select a Makefile using `fzf`. Then this Makefile will be called using a relative path: `:Make -C <path/to/selected/makefile>`.  This way of calling the Makefile ensure that the Vim quickfix list will be functional. I always keep the project root directory as the current working directory.
+
+Finally I like to use keyboard shortcuts set in my `.vimrc` to use this plugin: F7 to build and Shift-F7 to select the Makefile.
+
 ## Requirements
 
   * [fzf](https://github.com/junegunn/fzf)
