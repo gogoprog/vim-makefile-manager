@@ -2,6 +2,10 @@
 
 Vim plugin that provides commands to switch between different Makefiles.
 
+## Demo
+
+![Image](https://github.com/gogoprog/vim-makefile-manager/raw/master/demo.gif)
+
 ## Requirements
 
   * [fzf](https://github.com/junegunn/fzf)
@@ -22,3 +26,8 @@ Add the following line to ```.vimrc```
 | MakefileManagerSelect | Select the Makefile using `fzf`         |
 | MakefileManagerMake   | Execute :Make for the selected Makefile |
 
+
+## License
+
+Copyright (c) Gauthier Billot.  Distributed under the same terms as Vim itself.
+See `:help license`.
