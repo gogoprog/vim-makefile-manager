@@ -2,7 +2,7 @@
 command! -bar MakefileManagerSelect :lua MM_select()
 command! -bar MakefileManagerMake :call MM_make()
 
-let g:MakefileManager_path= ''
+let g:MakefileManager_path = get(g:, 'MakefileManager_path', "")
 
 lua <<EOF
 local function read_file(path)
