@@ -1,6 +1,7 @@
 
 command! -bar MakefileManagerSelect :lua MM_select()
 command! -bar MakefileManagerMake :call MM_make()
+command! -bar MakefileManagerSave :call MM_save()
 
 let g:MakefileManager_path = get(g:, 'MakefileManager_path', "")
 
@@ -32,5 +33,17 @@ function MM_make()
   else
     execute ':Make -C' . g:MakefileManager_path
   end
+endfunction
+
+function MM_save_var(name, value)
+  if empty(a:value)
+  else
+    let line="let " . a:name . "=\"" . a:value . "\""
+    call writefile([line], ".vimrc", "a")
+  end
+endfunction
+
+function MM_save()
+  :call MM_save_var("g:MakefileManager_path", g:MakefileManager_path)
 endfunction
 
