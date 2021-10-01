@@ -21,6 +21,7 @@ function MM_select()
 
   vim.command(":silent !find -iname makefile | fzf --header=\"MakefileManager: Select Makefile...\" > " .. tmpfilepath)
   local result = read_file(tmpfilepath)
+  result = result:gsub("[\n\r]", "")
 
   vim.command(":let g:MakefileManager_path=fnamemodify('" .. result .. "', ':h')")
 end
