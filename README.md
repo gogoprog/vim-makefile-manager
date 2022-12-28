@@ -34,9 +34,10 @@ Add the following line to ```.vimrc```
 
 | Name                  | Description                             |
 |-----------------------|-----------------------------------------|
-| `:MakefileManagerSelect` | Select the Makefile using `fzf`         |
-| `:MakefileManagerMake`   | Execute `:Make` for the selected Makefile |
-
+| `:MMInteractiveSelect` | Select the Makefile using `fzf`         |
+| `:MMSelect [file]` | Select the Makefile         |
+| `:MMMake`   | Execute `:Make` for the selected Makefile |
+| `:MMSave`   | Save the current state in a local .vimrc file |
 
 ## License
 
