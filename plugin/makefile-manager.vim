@@ -1,31 +1,18 @@
 
-command! -bar MakefileManagerSelect :lua MM_select()
-command! -bar MakefileManagerMake :call MM_make()
-command! -bar MakefileManagerSave :call MM_save()
+command! -bar MMInteractiveSelect :call MM_iselect()
+command! -bar MMMake :call MM_make()
+command! -bar MMSave :call MM_save()
+command! -nargs=1 MMSelect :call MM_select(<f-args>)
 
 let g:MakefileManager_path = get(g:, 'MakefileManager_path', "")
 
-lua <<EOF
-local function read_file(path)
-    local file = io.open(path, "r")
-    if not file then return nil end
-    local content = file:read "*a"
-    file:close()
-    return content
-end
+function MM_iselect()
+  call fzf#run({'source': 'find -iname makefile', 'sink': function('MM_select')})
+endfunction
 
-local tmpfilepath = "/tmp/makefilemanager"
-
-function MM_select()
-  local path = vim.eval("g:MakefileManager_path")
-
-  vim.command(":silent !find -iname makefile | fzf --header=\"MakefileManager: Select Makefile...\" > " .. tmpfilepath)
-  local result = read_file(tmpfilepath)
-  result = result:gsub("[\n\r]", "")
-
-  vim.command(":let g:MakefileManager_path=fnamemodify('" .. result .. "', ':h')")
-end
-EOF
+function MM_select(file)
+  :let g:MakefileManager_path=fnamemodify(a:file, ':h')
+endfunction
 
 function MM_make()
   set makeprg=make
@@ -36,7 +23,7 @@ function MM_make()
   end
 endfunction
 
-function MM_save_var(name, value)
+function! MM_save_var(name, value)
   if empty(a:value)
   else
     let line="let " . a:name . "=\"" . a:value . "\""
